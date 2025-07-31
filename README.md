@@ -109,10 +109,10 @@ pytest -v
 ![CPU Utilization](docs/Figure_2.png)
 *Figure 2: CPU utilization metrics demonstrating 15% improvement during full routing table downloads*
 
-### Memory Efficiency Gains
-![Memory Efficiency](docs/Figure_3.png)
-*Figure 3: Memory usage optimization showing 20% more efficient memory utilization*
-
 ### Automated Test Coverage Increase
-![Test Coverage](docs/Figure_4.png)
-*Figure 4: Automated test coverage improvement showing 40% increase in test automation*
+![Automated Test Coverage Increase](docs/Figure_3.png)
+*Figure 3: Automated test coverage improvements*
+
+### BGP Convergance
+![BGP Convergance](docs/Figure_4.png)
+*Figure 4: BGP Convergance*
