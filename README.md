@@ -72,8 +72,8 @@ bgp/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd bgp
+git clone https://github.com/VanshK123/bgp-prototype.git
+cd bgp-prototype
 
 # Install Python dependencies
 pip install -r requirements.txt

@@ -1,0 +1,126 @@
+# BGP Routing Algorithm Prototype Configuration
+
+aws:
+  region: us-east-1
+  router_count: 10
+  instance_type: t3.medium
+  key_path: ~/.ssh/bgp-key.pem
+  s3_bucket: bgp-prototype-logs
+  availability_zones:
+    - us-east-1a
+    - us-east-1b
+    - us-east-1c
+    - us-east-1d
+    - us-east-1e
+    - us-east-1f
+  vpc_cidr: 10.0.0.0/16
+  subnet_cidrs:
+    - 10.0.1.0/24
+    - 10.0.2.0/24
+    - 10.0.3.0/24
+    - 10.0.4.0/24
+    - 10.0.5.0/24
+    - 10.0.6.0/24
+
+frr:
+  version: 8.0
+  bgp_asn_start: 65001
+  daemons:
+    bgpd: yes
+    ospfd: no
+    ospf6d: no
+    ripd: no
+    ripngd: no
+    isisd: no
+    pimd: no
+    ldpd: no
+    nhrpd: no
+    eigrpd: no
+    babeld: no
+    sharpd: no
+    pbrd: no
+    bfdd: no
+    fabricd: no
+    vrrpd: no
+    pathd: no
+
+performance:
+  route_lookup:
+    target_improvement: 25  # 25% improvement target
+    max_lookup_time: 0.001  # 1ms max lookup time
+    test_route_count: 10000
+  cpu_utilization:
+    target_improvement: 15  # 15% improvement target
+    max_cpu_usage: 80  # 80% max CPU usage
+  memory_efficiency:
+    target_improvement: 20  # 20% improvement target
+    max_memory_usage: 200  # 200MB max memory usage
+  convergence:
+    max_convergence_time: 5.0  # 5 seconds max convergence
+    min_convergence_time: 0.5  # 0.5 seconds min convergence
+
+testing:
+  automated_test_coverage:
+    target_coverage: 85  # 85% test coverage target
+    improvement_target: 40  # 40% improvement target
+    min_test_count: 50  # Minimum 50 automated tests
+  manual_testing_reduction:
+    target_reduction: 50  # 50% reduction target
+    min_automated_tests: 30  # Minimum 30 automated tests
+    min_hours_saved: 20  # Minimum 20 hours saved
+  performance_thresholds:
+    route_update_processing: 25  # 25% improvement
+    cpu_utilization: 15  # 15% improvement
+    memory_efficiency: 20  # 20% improvement
+    convergence_time: 5.0  # 5 seconds max
+
+monitoring:
+  s3_logging:
+    enabled: true
+    upload_interval: 60  # 60 seconds
+    log_retention_days: 30
+  metrics:
+    cpu_monitoring: true
+    memory_monitoring: true
+    network_monitoring: true
+    bgp_session_monitoring: true
+  alerts:
+    cpu_threshold: 80
+    memory_threshold: 85
+    convergence_timeout: 10
+
+automation:
+  deployment:
+    terraform_timeout: 600  # 10 minutes
+    router_ready_timeout: 600  # 10 minutes
+    bgp_config_timeout: 300  # 5 minutes
+  testing:
+    performance_test_timeout: 1800  # 30 minutes
+    integration_test_timeout: 900  # 15 minutes
+    cleanup_timeout: 300  # 5 minutes
+  nightly_regression:
+    enabled: true
+    schedule: "0 2 * * *"  # 2 AM daily
+    test_suite: "performance,integration,automation"
+
+logging:
+  level: INFO
+  format: json
+  output:
+    - console
+    - file
+    - s3
+  file:
+    path: logs/bgp-automation.log
+    max_size: 100MB
+    backup_count: 5
+
+development:
+  debug_mode: false
+  profiling_enabled: true
+  memory_profiling: true
+  cpu_profiling: true
+  test_data_generation:
+    route_count: 10000
+    convergence_scenarios: 10
+    performance_scenarios: 5 
