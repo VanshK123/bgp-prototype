@@ -99,18 +99,20 @@ pytest -v
 - **Test Coverage**: 40% increase in automated test coverage
 - **Manual Testing**: 50% reduction in manual testing effort
 
-## Contributing
+## Performance Results
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
+### Route Lookup Performance Improvement
+![Route Lookup Performance](docs/Figure_1.png)
+*Figure 1: Route lookup performance comparison showing 25% improvement in processing time under 10k routes*
 
-## License
+### CPU Utilization Optimization
+![CPU Utilization](docs/Figure_2.png)
+*Figure 2: CPU utilization metrics demonstrating 15% improvement during full routing table downloads*
 
-MIT License - see LICENSE file for details
+### Memory Efficiency Gains
+![Memory Efficiency](docs/Figure_3.png)
+*Figure 3: Memory usage optimization showing 20% more efficient memory utilization*
 
-## Contact
-
-For questions or contributions, please open an issue or submit a pull request. 
+### Automated Test Coverage Increase
+![Test Coverage](docs/Figure_4.png)
+*Figure 4: Automated test coverage improvement showing 40% increase in test automation*
